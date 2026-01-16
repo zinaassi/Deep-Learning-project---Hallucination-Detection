@@ -320,12 +320,55 @@ def parse_args_main():
         help="Number of workers (default: 4)."
     )
     parser.add_argument(
-        "--pin_memory", 
-        type=int, 
+        "--pin_memory",
+        type=int,
         default=1,
         help="pin memory (default: 4)."
     )
-    
+
+    # New arguments for ImprovedLOSNet
+    parser.add_argument(
+        "--rank_embed_dim",
+        type=int,
+        default=128,
+        help="Dimension of learned rank embeddings for ImprovedLOSNet (default: 128)."
+    )
+
+    parser.add_argument(
+        "--use_rank_embed",
+        action='store_true',
+        default=True,
+        help="Use learned rank embeddings in ImprovedLOSNet (default: True)."
+    )
+
+    parser.add_argument(
+        "--use_entropy",
+        action='store_true',
+        default=True,
+        help="Use entropy features in ImprovedLOSNet (default: True)."
+    )
+
+    parser.add_argument(
+        "--use_gaps",
+        action='store_true',
+        default=True,
+        help="Use probability gap features in ImprovedLOSNet (default: True)."
+    )
+
+    # Arguments for knowledge distillation
+    parser.add_argument(
+        "--distill_alpha",
+        type=float,
+        default=0.5,
+        help="Weight for hard loss in distillation (1-alpha for soft loss) (default: 0.5)."
+    )
+
+    parser.add_argument(
+        "--distill_temp",
+        type=float,
+        default=2.0,
+        help="Temperature for knowledge distillation (default: 2.0)."
+    )
 
 
 

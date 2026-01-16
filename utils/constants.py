@@ -35,6 +35,7 @@ MODEL_VOCAB_SIZES = {
 PROBE_MODELS = [
     ## logit-based
     'LOS-Net',
+    'ImprovedLOSNet',
     'ATP_R_MLP',
     'ATP_R_Transf',
     ]
