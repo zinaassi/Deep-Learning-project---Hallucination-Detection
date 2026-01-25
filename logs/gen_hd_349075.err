@@ -1,0 +1,4 @@
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/create_HD_datasets.py", line 27
+    del label_file, label_file.exists()
+                    ^^^^^^^^^^^^^^^^^^^
+SyntaxError: cannot delete function call

@@ -175,6 +175,7 @@ def test_ablation_configurations():
 
     print("\n✓ All ablation configurations work correctly!")
 
+export WANDB_MODE=disabled
 
 def main():
     print("\n" + "="*80)

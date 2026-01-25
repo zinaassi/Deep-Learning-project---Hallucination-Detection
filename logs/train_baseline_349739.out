@@ -1,0 +1,8 @@
+================================================
+BASELINE LOS-NET TRAINING
+================================================
+Job ID: 349739
+Dataset: movies
+Model: mistralai/Mistral-7B-Instruct-v0.2
+Starting at: Fri 23 Jan 2026 10:07:29 PM IST
+Finished at: Fri 23 Jan 2026 10:09:00 PM IST with exit code 0

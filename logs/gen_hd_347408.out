@@ -1,0 +1,26 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 347408
+Node: lambda1
+Dataset: hotpotqa
+Model: mistralai/Mistral-7B-Instruct-v0.2
+Samples: 1000
+Starting at: Mon 19 Jan 2026 11:13:39 AM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+⚠ WARNING: Some model layers on CPU (limited GPU memory)
+  This is OK but will be slower
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 0
+Finished at: Mon 19 Jan 2026 05:14:56 PM IST
+✓ Success: Generated 1000 samples for hotpotqa with mistral
+  Location: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/raw_data/mistralai/Mistral-7B-Instruct-v0.2/hotpotqa

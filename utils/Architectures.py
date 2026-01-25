@@ -90,7 +90,7 @@ class ATP_R_MLP(nn.Module):
                 x = F.dropout(x, p=self.dropout)
 
 
-        return self.sigmoid(x).squeeze(-1)  # Apply sigmoid for binary classification
+        return x.squeeze(-1)  # Apply sigmoid for binary classification
 
 
 class ATP_R_Transf(nn.Module):
@@ -185,7 +185,7 @@ class ATP_R_Transf(nn.Module):
         # Final classification head
         x = self.mlp_head(x)  # Shape: [B, 1]
         
-        return self.sigmoid(x).squeeze(-1)  # Apply sigmoid for binary classification
+        return x.squeeze(-1)  # Apply sigmoid for binary classification
     
 
 class LOS_Net(nn.Module):
@@ -300,7 +300,7 @@ class LOS_Net(nn.Module):
         
         # Classification head
         x = self.mlp_head(x)
-        return self.sigmoid(x).squeeze(-1)
+        return x.squeeze(-1)
 
 
 class ImprovedLOSNet(nn.Module):
@@ -375,25 +375,25 @@ class ImprovedLOSNet(nn.Module):
         # Classification head
         self.mlp_head = nn.Linear(self.hidden_dim, 1)
         self.sigmoid = nn.Sigmoid()
-
     def compute_entropy(self, sorted_TDS_normalized):
         """
         Compute Shannon entropy of probability distributions.
-
-        Args:
-            sorted_TDS_normalized: [B, N, K] - normalized sorted probabilities
-
-        Returns:
-            entropy: [B, N, 1] - entropy for each position
         """
-        # Convert normalized values back to probabilities
-        # Note: sorted_TDS_normalized is z-score normalized, need to convert to probs
-        # For now, use softmax to ensure valid probability distribution
+        # Clamp input to prevent extreme values
+        sorted_TDS_normalized = torch.clamp(sorted_TDS_normalized, min=-10, max=10)
+    
+        # Convert to probabilities with softmax
         probs = F.softmax(sorted_TDS_normalized, dim=-1)
-
-        epsilon = 1e-10
-        entropy = -torch.sum(probs * torch.log(probs + epsilon), dim=-1, keepdim=True)
-
+    
+        # Clip probabilities to avoid log(0)
+        probs = torch.clamp(probs, min=1e-10, max=1.0)
+    
+        # Compute entropy
+        entropy = -torch.sum(probs * torch.log(probs), dim=-1, keepdim=True)
+    
+        # Check for NaN and replace with 0
+        entropy = torch.nan_to_num(entropy, nan=0.0)
+    
         return entropy
 
     def compute_prob_gaps(self, sorted_TDS_normalized):
@@ -438,17 +438,18 @@ class ImprovedLOSNet(nn.Module):
         # === STEP 3: NEW - Learned Rank Embeddings ===
         feature_list = [encoded_sorted_TDS_normalized, encoded_normalized_ATP]
 
+
         if self.use_rank_embed:
             # Create rank indices [0, 1, 2, ..., K-1] for each position
             rank_indices = torch.arange(K, device=sorted_TDS_normalized.device)
-            rank_indices = rank_indices.unsqueeze(0).unsqueeze(0).expand(B, N, K)  # [B, N, K]
-
-            # Get rank embeddings
-            rank_embeds = self.rank_embedding(rank_indices)  # [B, N, K, rank_embed_dim]
-
-            # Aggregate across K dimension (mean pooling)
-            rank_embeds = rank_embeds.mean(dim=2)  # [B, N, rank_embed_dim]
-
+            
+            # Make sure indices are within bounds
+            rank_indices = torch.clamp(rank_indices, min=0, max=self.rank_embedding.num_embeddings - 1)
+            
+            rank_indices = rank_indices.unsqueeze(0).unsqueeze(0).expand(B, N, K)
+            rank_embeds = self.rank_embedding(rank_indices)
+            rank_embeds = rank_embeds.mean(dim=2)
+            
             feature_list.append(rank_embeds)
 
         # === STEP 4: NEW - Entropy Features ===
@@ -486,6 +487,6 @@ class ImprovedLOSNet(nn.Module):
 
         # Classification head
         x = self.mlp_head(x)
-        return self.sigmoid(x).squeeze(-1)
-
-######################## LOS ########################
+        if torch.isnan(x).any():
+            x = torch.nan_to_num(x, nan=0.0)
+        return x.squeeze(-1)

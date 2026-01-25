@@ -1,0 +1,17 @@
+2026-01-23 00:14:21,663 - AppLogger - [INFO] - main.py:247 - Starting the data processing pipeline.
+2026-01-23 00:14:21,664 - AppLogger - [INFO] - main.py:248 - Parsed Arguments: {'LLM': 'Qwen/Qwen2.5-7B-Instruct', 'base_raw_data_dir': '/home/guy_b/big-storage/raw_data', 'train_dataset': 'imdb', 'test_dataset': 'imdb_test', 'base_pre_processed_data_dir': '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data', 'probe_model': 'ImprovedLOSNet', 'topk_preprocess': 1000, 'input_output_type': 'output', 'topk_dim': 1000, 'N_max': 100, 'num_folds': 5, 'fold_to_run': 0, 'input_type': 'LOS', 'seed': 0, 'cuda_idx': 0, 'batch_size': 64, 'hidden_dim': 128, 'heads': 8, 'dropout': 0.1, 'num_layers': 2, 'pool': 'cls', 'patience': 20, 'num_epochs': 100, 'best_model_path': 'saved_models', 'lr': 0.0001, 'rank_encoding': 'scale_encoding', 'weight_decay': 0.001, 'num_workers': 4, 'pin_memory': 1, 'rank_embed_dim': 128, 'use_rank_embed': True, 'use_entropy': True, 'use_gaps': True, 'distill_alpha': 0.5, 'distill_temp': 2.0}
+2026-01-23 00:14:21,666 - AppLogger - [INFO] - main.py:255 - Loading preproccessed data for model 'Qwen/Qwen2.5-7B-Instruct'
+2026-01-23 00:14:21,669 - AppLogger - [INFO] - main.py:25 - Starting data preparation for model 'Qwen/Qwen2.5-7B-Instruct' using training dataset 'imdb'.
+2026-01-23 00:14:21,682 - AppLogger - [INFO] - main.py:91 - Training dataset loaded successfully.
+Traceback (most recent call last):
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 359, in <module>
+    main()
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 257, in main
+    dataset_train, dataset_test = get_train_test_datasets(args, logger)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 93, in get_train_test_datasets
+    dataset_test = CustomSavedDataset(
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/utils/dataset_preprocess.py", line 273, in __init__
+    self.file_indices = self._get_indices()
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/utils/dataset_preprocess.py", line 293, in _get_indices
+    files = os.listdir(self.preprocessed_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/imdb_test'

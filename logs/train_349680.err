@@ -1,0 +1,106 @@
+2026-01-23 21:15:08,729 - AppLogger - [INFO] - main.py:247 - Starting the data processing pipeline.
+2026-01-23 21:15:08,732 - AppLogger - [INFO] - main.py:248 - Parsed Arguments: {'LLM': 'mistralai/Mistral-7B-Instruct-v0.2', 'base_raw_data_dir': '/home/guy_b/big-storage/raw_data', 'train_dataset': 'movies', 'test_dataset': 'movies_test', 'base_pre_processed_data_dir': '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data', 'probe_model': 'ImprovedLOSNet', 'topk_preprocess': 1000, 'input_output_type': 'output', 'topk_dim': 1000, 'N_max': 100, 'num_folds': 5, 'fold_to_run': 0, 'input_type': 'LOS', 'seed': 0, 'cuda_idx': 0, 'batch_size': 64, 'hidden_dim': 128, 'heads': 8, 'dropout': 0.1, 'num_layers': 2, 'pool': 'cls', 'patience': 20, 'num_epochs': 100, 'best_model_path': 'saved_models', 'lr': 0.0001, 'rank_encoding': 'scale_encoding', 'weight_decay': 0.001, 'num_workers': 4, 'pin_memory': 1, 'rank_embed_dim': 128, 'use_rank_embed': True, 'use_entropy': True, 'use_gaps': True, 'distill_alpha': 0.5, 'distill_temp': 2.0}
+2026-01-23 21:15:08,738 - AppLogger - [INFO] - main.py:255 - Loading preproccessed data for model 'mistralai/Mistral-7B-Instruct-v0.2'
+2026-01-23 21:15:08,739 - AppLogger - [INFO] - main.py:25 - Starting data preparation for model 'mistralai/Mistral-7B-Instruct-v0.2' using training dataset 'movies'.
+2026-01-23 21:15:08,757 - AppLogger - [INFO] - main.py:91 - Training dataset loaded successfully.
+2026-01-23 21:15:08,822 - AppLogger - [INFO] - main.py:100 - Test dataset loaded successfully.
+2026-01-23 21:15:08,823 - AppLogger - [INFO] - main.py:102 - Dataset processing pipeline completed successfully.
+2026-01-23 21:15:08,826 - AppLogger - [INFO] - main.py:260 - Splitting dataset into train, validation, and test indices.
+Extracting labels:   0%|          | 0/1000 [00:00<?, ?it/s]Extracting labels:   1%|          | 7/1000 [00:00<00:14, 69.60it/s]Extracting labels:   2%|▏         | 21/1000 [00:00<00:09, 105.97it/s]Extracting labels:   3%|▎         | 32/1000 [00:00<00:09, 106.81it/s]Extracting labels:   4%|▍         | 45/1000 [00:00<00:08, 113.61it/s]Extracting labels:   6%|▌         | 59/1000 [00:00<00:07, 122.82it/s]Extracting labels:   7%|▋         | 72/1000 [00:00<00:08, 114.65it/s]Extracting labels:   8%|▊         | 85/1000 [00:00<00:07, 116.70it/s]Extracting labels:  10%|▉         | 97/1000 [00:00<00:08, 106.60it/s]Extracting labels:  11%|█         | 108/1000 [00:00<00:08, 104.54it/s]Extracting labels:  12%|█▏        | 120/1000 [00:01<00:08, 107.18it/s]Extracting labels:  13%|█▎        | 131/1000 [00:01<00:08, 104.72it/s]Extracting labels:  15%|█▍        | 146/1000 [00:01<00:07, 115.96it/s]Extracting labels:  16%|█▌        | 159/1000 [00:01<00:07, 117.67it/s]Extracting labels:  17%|█▋        | 172/1000 [00:01<00:06, 120.74it/s]Extracting labels:  18%|█▊        | 185/1000 [00:01<00:07, 109.69it/s]Extracting labels:  20%|█▉        | 198/1000 [00:01<00:06, 114.85it/s]Extracting labels:  21%|██        | 212/1000 [00:01<00:06, 120.96it/s]Extracting labels:  23%|██▎       | 226/1000 [00:01<00:06, 126.30it/s]Extracting labels:  24%|██▍       | 239/1000 [00:02<00:06, 120.73it/s]Extracting labels:  25%|██▌       | 254/1000 [00:02<00:05, 128.10it/s]Extracting labels:  27%|██▋       | 268/1000 [00:02<00:05, 130.05it/s]Extracting labels:  28%|██▊       | 282/1000 [00:02<00:05, 130.27it/s]Extracting labels:  30%|██▉       | 297/1000 [00:02<00:05, 135.23it/s]Extracting labels:  31%|███       | 311/1000 [00:02<00:05, 128.01it/s]Extracting labels:  32%|███▎      | 325/1000 [00:02<00:05, 131.28it/s]Extracting labels:  34%|███▍      | 339/1000 [00:02<00:05, 132.10it/s]Extracting labels:  35%|███▌      | 354/1000 [00:02<00:04, 136.43it/s]Extracting labels:  37%|███▋      | 369/1000 [00:03<00:04, 139.73it/s]Extracting labels:  38%|███▊      | 384/1000 [00:03<00:04, 141.55it/s]Extracting labels:  40%|████      | 400/1000 [00:03<00:04, 146.01it/s]Extracting labels:  42%|████▏     | 415/1000 [00:03<00:04, 145.46it/s]Extracting labels:  43%|████▎     | 430/1000 [00:03<00:04, 139.00it/s]Extracting labels:  44%|████▍     | 444/1000 [00:03<00:04, 134.98it/s]Extracting labels:  46%|████▌     | 458/1000 [00:03<00:04, 134.88it/s]Extracting labels:  47%|████▋     | 472/1000 [00:03<00:04, 123.79it/s]Extracting labels:  49%|████▊     | 487/1000 [00:03<00:03, 129.74it/s]Extracting labels:  50%|█████     | 501/1000 [00:04<00:04, 113.32it/s]Extracting labels:  52%|█████▏    | 516/1000 [00:04<00:03, 121.07it/s]Extracting labels:  53%|█████▎    | 532/1000 [00:04<00:03, 129.55it/s]Extracting labels:  55%|█████▍    | 547/1000 [00:04<00:03, 133.92it/s]Extracting labels:  56%|█████▌    | 561/1000 [00:04<00:03, 134.91it/s]Extracting labels:  57%|█████▊    | 575/1000 [00:04<00:03, 134.23it/s]Extracting labels:  59%|█████▉    | 591/1000 [00:04<00:02, 141.36it/s]Extracting labels:  61%|██████    | 607/1000 [00:04<00:02, 145.15it/s]Extracting labels:  62%|██████▏   | 623/1000 [00:04<00:02, 148.88it/s]Extracting labels:  64%|██████▍   | 638/1000 [00:05<00:02, 147.54it/s]Extracting labels:  65%|██████▌   | 653/1000 [00:05<00:02, 136.11it/s]Extracting labels:  67%|██████▋   | 669/1000 [00:05<00:02, 140.25it/s]Extracting labels:  68%|██████▊   | 684/1000 [00:05<00:02, 138.36it/s]Extracting labels:  70%|██████▉   | 698/1000 [00:05<00:02, 137.12it/s]Extracting labels:  71%|███████   | 712/1000 [00:05<00:02, 137.67it/s]Extracting labels:  73%|███████▎  | 727/1000 [00:05<00:01, 139.22it/s]Extracting labels:  74%|███████▍  | 743/1000 [00:05<00:01, 143.78it/s]Extracting labels:  76%|███████▌  | 758/1000 [00:05<00:01, 129.13it/s]Extracting labels:  77%|███████▋  | 772/1000 [00:06<00:01, 129.76it/s]Extracting labels:  79%|███████▊  | 786/1000 [00:06<00:01, 119.23it/s]Extracting labels:  80%|████████  | 801/1000 [00:06<00:01, 124.41it/s]Extracting labels:  81%|████████▏ | 814/1000 [00:06<00:01, 114.63it/s]Extracting labels:  83%|████████▎ | 829/1000 [00:06<00:01, 120.76it/s]Extracting labels:  84%|████████▍ | 845/1000 [00:06<00:01, 129.08it/s]Extracting labels:  86%|████████▌ | 859/1000 [00:06<00:01, 126.47it/s]Extracting labels:  87%|████████▋ | 872/1000 [00:06<00:01, 125.79it/s]Extracting labels:  88%|████████▊ | 885/1000 [00:06<00:00, 122.84it/s]Extracting labels:  90%|████████▉ | 899/1000 [00:07<00:00, 127.37it/s]Extracting labels:  91%|█████████ | 912/1000 [00:07<00:00, 125.37it/s]Extracting labels:  93%|█████████▎| 927/1000 [00:07<00:00, 131.15it/s]Extracting labels:  94%|█████████▍| 941/1000 [00:07<00:00, 128.40it/s]Extracting labels:  96%|█████████▌| 955/1000 [00:07<00:00, 130.79it/s]Extracting labels:  97%|█████████▋| 969/1000 [00:07<00:00, 131.01it/s]Extracting labels:  98%|█████████▊| 983/1000 [00:07<00:00, 121.59it/s]Extracting labels: 100%|█████████▉| 996/1000 [00:07<00:00, 119.16it/s]Extracting labels: 100%|██████████| 1000/1000 [00:07<00:00, 126.91it/s]
+Processing folds:   0%|          | 0/5 [00:00<?, ?it/s]Processing folds: 100%|██████████| 5/5 [00:00<00:00, 51150.05it/s]
+2026-01-23 21:15:16,714 - AppLogger - [INFO] - main.py:276 - Train size: 800, Validation size: 200, Test indices: 1000
+2026-01-23 21:15:16,782 - AppLogger - [INFO] - main.py:285 - Running fold 1 of 5.
+2026-01-23 21:15:16,787 - AppLogger - [INFO] - main.py:287 - Creating dataloaders for training, validation, and test sets.
+2026-01-23 21:15:16,797 - AppLogger - [INFO] - main.py:318 - Creating model for input type: LOS with sequence length 100 and feature dimension: 1000
+2026-01-23 21:15:17,167 - AppLogger - [INFO] - main.py:327 - Total number of parameters in the model: 450561
+2026-01-23 21:15:17,168 - AppLogger - [INFO] - main.py:330 - Creating optimizer and scheduler.
+2026-01-23 21:15:17,170 - AppLogger - [INFO] - main.py:335 - Total number of training steps: 1300, and warm-up steps: 130
+2026-01-23 21:15:17,171 - AppLogger - [INFO] - main.py:350 - will save the best model in this folder: saved_models/mistralai/Mistral-7B-Instruct-v0.2/movies with this file name: 5717171362.
+2026-01-23 21:15:17,172 - AppLogger - [INFO] - main.py:351 - Starting wandb, project is LOS-Net.
+2026-01-23 21:15:17,174 - AppLogger - [INFO] - main.py:352 - Starting training loop.
+2026-01-23 21:15:18,478 - AppLogger - [INFO] - main.py:190 - Epoch 1/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   0%|          | 0/13 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 359, in <module>
+    main()
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 356, in main
+    train_model(logger=logger, model=model, dataloader_train=dataloader_train, dataloader_val=dataloader_val, dataloader_test=dataloader_test, criterion=criterion, optimizer=optimizer, scheduler=scheduler, args=args, device=device)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 193, in train_model
+    train_loss, auc_train = train_one_epoch(model, dataloader_train, criterion, optimizer, scheduler, device, input_type=args.input_type)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 132, in train_one_epoch
+    loss.backward()
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/torch/_tensor.py", line 522, in backward
+    torch.autograd.backward(
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/torch/autograd/__init__.py", line 259, in backward
+    grad_tensors_ = _make_grads(tensors, grad_tensors_, is_grads_batched=False)
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/torch/autograd/__init__.py", line 142, in _make_grads
+    torch.ones_like(out, memory_format=torch.preserve_format)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [0,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [1,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [2,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [3,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [4,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [5,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [6,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [7,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [8,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [9,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [10,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [11,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [12,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [13,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [14,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [15,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [16,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [17,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [18,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [19,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [20,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [21,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [22,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [23,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [24,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [25,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [26,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [27,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [28,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [29,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [30,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [31,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [32,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [33,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [34,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [35,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [36,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [37,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [38,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [39,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [40,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [41,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [42,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [43,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [44,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [45,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [46,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [47,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [48,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [49,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [50,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [51,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [52,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [53,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [54,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [55,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [56,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [57,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [58,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [59,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [60,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [61,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [62,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [63,0,0] Assertion `input_val >= zero && input_val <= one` failed.

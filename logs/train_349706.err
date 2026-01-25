@@ -1,0 +1,38 @@
+2026-01-23 21:28:49,850 - AppLogger - [INFO] - main.py:247 - Starting the data processing pipeline.
+2026-01-23 21:28:49,851 - AppLogger - [INFO] - main.py:248 - Parsed Arguments: {'LLM': 'Qwen/Qwen2.5-7B-Instruct', 'base_raw_data_dir': '/home/guy_b/big-storage/raw_data', 'train_dataset': 'movies', 'test_dataset': 'movies_test', 'base_pre_processed_data_dir': '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data', 'probe_model': 'ImprovedLOSNet', 'topk_preprocess': 1000, 'input_output_type': 'output', 'topk_dim': 1000, 'N_max': 100, 'num_folds': 5, 'fold_to_run': 0, 'input_type': 'LOS', 'seed': 0, 'cuda_idx': 0, 'batch_size': 64, 'hidden_dim': 128, 'heads': 8, 'dropout': 0.1, 'num_layers': 2, 'pool': 'cls', 'patience': 20, 'num_epochs': 100, 'best_model_path': 'saved_models', 'lr': 0.0001, 'rank_encoding': 'scale_encoding', 'weight_decay': 0.001, 'num_workers': 4, 'pin_memory': 1, 'rank_embed_dim': 128, 'use_rank_embed': True, 'use_entropy': True, 'use_gaps': True, 'distill_alpha': 0.5, 'distill_temp': 2.0}
+2026-01-23 21:28:49,853 - AppLogger - [INFO] - main.py:255 - Loading preproccessed data for model 'Qwen/Qwen2.5-7B-Instruct'
+2026-01-23 21:28:49,854 - AppLogger - [INFO] - main.py:25 - Starting data preparation for model 'Qwen/Qwen2.5-7B-Instruct' using training dataset 'movies'.
+2026-01-23 21:28:49,865 - AppLogger - [INFO] - main.py:91 - Training dataset loaded successfully.
+2026-01-23 21:28:49,876 - AppLogger - [INFO] - main.py:100 - Test dataset loaded successfully.
+2026-01-23 21:28:49,877 - AppLogger - [INFO] - main.py:102 - Dataset processing pipeline completed successfully.
+2026-01-23 21:28:49,878 - AppLogger - [INFO] - main.py:260 - Splitting dataset into train, validation, and test indices.
+Extracting labels:   0%|          | 0/1000 [00:00<?, ?it/s]Extracting labels:   3%|▎         | 26/1000 [00:00<00:03, 245.90it/s]Extracting labels:   5%|▌         | 51/1000 [00:00<00:08, 114.68it/s]Extracting labels:   7%|▋         | 71/1000 [00:00<00:06, 137.41it/s]Extracting labels:  12%|█▏        | 124/1000 [00:00<00:03, 247.05it/s]Extracting labels:  18%|█▊        | 181/1000 [00:00<00:02, 337.90it/s]Extracting labels:  24%|██▎       | 236/1000 [00:00<00:01, 398.85it/s]Extracting labels:  29%|██▉       | 291/1000 [00:00<00:01, 442.20it/s]Extracting labels:  35%|███▍      | 346/1000 [00:01<00:01, 472.90it/s]Extracting labels:  40%|████      | 402/1000 [00:01<00:01, 496.41it/s]Extracting labels:  46%|████▌     | 458/1000 [00:01<00:01, 512.80it/s]Extracting labels:  52%|█████▏    | 515/1000 [00:01<00:00, 526.79it/s]Extracting labels:  57%|█████▋    | 569/1000 [00:01<00:01, 372.78it/s]Extracting labels:  62%|██████▏   | 622/1000 [00:01<00:00, 407.66it/s]Extracting labels:  68%|██████▊   | 675/1000 [00:01<00:00, 436.16it/s]Extracting labels:  73%|███████▎  | 727/1000 [00:01<00:00, 457.26it/s]Extracting labels:  78%|███████▊  | 780/1000 [00:01<00:00, 475.60it/s]Extracting labels:  83%|████████▎ | 831/1000 [00:02<00:00, 457.01it/s]Extracting labels:  88%|████████▊ | 885/1000 [00:02<00:00, 479.27it/s]Extracting labels:  94%|█████████▍| 940/1000 [00:02<00:00, 498.30it/s]Extracting labels:  99%|█████████▉| 992/1000 [00:02<00:00, 486.70it/s]Extracting labels: 100%|██████████| 1000/1000 [00:02<00:00, 413.37it/s]
+Processing folds:   0%|          | 0/5 [00:00<?, ?it/s]Processing folds: 100%|██████████| 5/5 [00:00<00:00, 79137.81it/s]
+2026-01-23 21:28:52,302 - AppLogger - [INFO] - main.py:276 - Train size: 800, Validation size: 200, Test indices: 1000
+2026-01-23 21:28:52,333 - AppLogger - [INFO] - main.py:285 - Running fold 1 of 5.
+2026-01-23 21:28:52,335 - AppLogger - [INFO] - main.py:287 - Creating dataloaders for training, validation, and test sets.
+2026-01-23 21:28:52,342 - AppLogger - [INFO] - main.py:318 - Creating model for input type: LOS with sequence length 100 and feature dimension: 1000
+2026-01-23 21:28:52,622 - AppLogger - [INFO] - main.py:327 - Total number of parameters in the model: 450561
+2026-01-23 21:28:52,623 - AppLogger - [INFO] - main.py:330 - Creating optimizer and scheduler.
+2026-01-23 21:28:52,624 - AppLogger - [INFO] - main.py:335 - Total number of training steps: 1300, and warm-up steps: 130
+2026-01-23 21:28:52,626 - AppLogger - [INFO] - main.py:350 - will save the best model in this folder: saved_models/Qwen/Qwen2.5-7B-Instruct/movies with this file name: 6532625918.
+2026-01-23 21:28:52,627 - AppLogger - [INFO] - main.py:351 - Starting wandb, project is LOS-Net.
+2026-01-23 21:28:52,628 - AppLogger - [INFO] - main.py:352 - Starting training loop.
+2026-01-23 21:28:53,704 - AppLogger - [INFO] - main.py:190 - Epoch 1/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   0%|          | 0/13 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 359, in <module>
+    main()
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 356, in main
+    train_model(logger=logger, model=model, dataloader_train=dataloader_train, dataloader_val=dataloader_val, dataloader_test=dataloader_test, criterion=criterion, optimizer=optimizer, scheduler=scheduler, args=args, device=device)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 193, in train_model
+    train_loss, auc_train = train_one_epoch(model, dataloader_train, criterion, optimizer, scheduler, device, input_type=args.input_type)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 128, in train_one_epoch
+    predictions = model(sorted_TDS_normalized, normalized_ATP, ATP_R).reshape(-1)
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/utils/Architectures.py", line 442, in forward
+    feature_list.append(rank_embeds)
+UnboundLocalError: local variable 'feature_list' referenced before assignment

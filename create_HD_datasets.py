@@ -2,10 +2,10 @@
 import torch
 from utils.logger import get_logger
 from transformers import set_seed
-from utils.LLM_helpers import load_model_and_validate_gpu
 from utils.args import parse_args_HD
 from utils.datasets_HD_helper import *
 from utils.generation_utils import *
+from utils.LLM_helpers_datagen import load_model_for_data_generation
 
 
 def process_and_save_model_io(args, data, model, tokenizer, device, model_name, wrong_labels, labels, do_sample=False, output_LOS=True,
@@ -19,17 +19,21 @@ def process_and_save_model_io(args, data, model, tokenizer, device, model_name, 
         if index not in args.actual_indices:
             logger.info(f"skiping index {index} as it is not in the actual indices")
             continue
+        from pathlib import Path
+        label_file = Path(args.base_raw_data_dir) / args.LLM / args.dataset / f'label_{index}.pt'
+        if label_file.exists():
+            logger.info(f"Skipping index {index} - already processed")
+            continue
+        
         logger.info(f"Processing index {index}")
 
         start_time = time.time()
 
-        model_input = tokenize(prompt, tokenizer, model_name).to(device)
-
-
+        model_input = tokenize(prompt, tokenizer, model_name, tokenizer_args={'max_length': 1500, 'truncation': True}).to(device)
         with torch.no_grad():
             model_output = generate(model_input, model, model_name, do_sample, max_new_tokens=max_new_tokens,
-                                    top_p=top_p, temperature=temperature, stop_token_id=stop_token_id, tokenizer=tokenizer, output_hidden_states=True)
-
+                                top_p=top_p, temperature=temperature, stop_token_id=stop_token_id, 
+                                tokenizer=tokenizer, output_hidden_states=True)
         answer = tokenizer.decode(model_output['sequences'][0][len(model_input[0]):])
 
         if output_LOS:
@@ -47,6 +51,12 @@ def process_and_save_model_io(args, data, model, tokenizer, device, model_name, 
         
         save_raw_data(LLM=args.LLM, dataset_name=args.dataset, base_dir=args.base_raw_data_dir, probs_output=canonized_logits, idx=index, label=correctness)
 
+        # Clear memory aggressively
+        del model_output, canonized_logits, model_input, answer, res, correctness
+        torch.cuda.empty_cache()
+        import gc
+        gc.collect()
+        logger.info(f"Memory cleared for index {index}")
 
         end_time = time.time()
         delta_time = end_time - start_time
@@ -95,7 +105,9 @@ def main():
     
     # Load the specified model and tokenizer, ensuring GPU compatibility
     logger.info(f"Loading model: {args.LLM}")
-    llm, tokenizer = load_model_and_validate_gpu(args.LLM)
+    llm, tokenizer = load_model_for_data_generation(args.LLM)
+    print(f"Model loaded: {llm}")
+    print(f"Tokenizer loaded: {tokenizer}")
     
     # Determine the device to use for computation
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -109,7 +121,9 @@ def main():
         logger.info(f"The model '{args.LLM}' is identified as an Instruct model. No specific stop token will be used (stop_token_id is set to None).")
         
     all_questions, context, labels, max_new_tokens, origin, preprocess_fn, stereotype, type_, wrong_labels = load_data(args, args.dataset)
-    
+    if 'imdb' in args.dataset.lower():
+        max_new_tokens = min(max_new_tokens, 50)
+    logger.info(f"Limiting max_new_tokens to {max_new_tokens} for IMDB dataset")
     
     dataset_size = args.n_samples
     

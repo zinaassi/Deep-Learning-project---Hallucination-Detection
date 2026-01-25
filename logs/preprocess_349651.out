@@ -1,0 +1,31 @@
+================================================
+HD DATA PREPROCESSING
+================================================
+Job ID: 349651
+Node: lambda1
+Dataset: hotpotqa_test
+Model: Qwen/Qwen2.5-7B-Instruct
+Input dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/raw_data/Qwen/Qwen2.5-7B-Instruct/hotpotqa_test/
+Output dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/hotpotqa_test/
+Starting at: Fri 23 Jan 2026 08:32:58 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+CPU cores: 2
+
+Found 1000 raw data files to preprocess
+
+================================================
+STARTING PREPROCESSING
+================================================
+
+================================================
+PREPROCESSING COMPLETE
+================================================
+Exit code: 0
+Finished at: Fri 23 Jan 2026 08:44:21 PM IST
+✓ Success: Preprocessed 0 samples for hotpotqa_test with qwen
+  Location: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/hotpotqa_test
+
+Storage usage:
+228M	/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/hotpotqa_test

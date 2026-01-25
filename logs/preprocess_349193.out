@@ -1,0 +1,31 @@
+================================================
+HD DATA PREPROCESSING
+================================================
+Job ID: 349193
+Node: lambda1
+Dataset: imdb
+Model: Qwen/Qwen2.5-7B-Instruct
+Input dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/raw_data/Qwen/Qwen2.5-7B-Instruct/imdb/
+Output dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/imdb/
+Starting at: Thu 22 Jan 2026 10:21:57 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+CPU cores: 2
+
+Found 1000 raw data files to preprocess
+
+================================================
+STARTING PREPROCESSING
+================================================
+
+================================================
+PREPROCESSING COMPLETE
+================================================
+Exit code: 0
+Finished at: Thu 22 Jan 2026 10:26:29 PM IST
+✓ Success: Preprocessed 0 samples for imdb with qwen
+  Location: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/imdb
+
+Storage usage:
+228M	/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/Qwen/Qwen2.5-7B-Instruct/imdb

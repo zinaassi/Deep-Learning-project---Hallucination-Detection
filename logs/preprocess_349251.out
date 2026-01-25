@@ -1,0 +1,31 @@
+================================================
+HD DATA PREPROCESSING
+================================================
+Job ID: 349251
+Node: lambda1
+Dataset: movies_test
+Model: meta-llama/Meta-Llama-3-8B-Instruct
+Input dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/raw_data/meta-llama/Meta-Llama-3-8B-Instruct/movies_test/
+Output dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/meta-llama/Meta-Llama-3-8B-Instruct/movies_test/
+Starting at: Fri 23 Jan 2026 12:32:48 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+CPU cores: 2
+
+Found 1000 raw data files to preprocess
+
+================================================
+STARTING PREPROCESSING
+================================================
+
+================================================
+PREPROCESSING COMPLETE
+================================================
+Exit code: 0
+Finished at: Fri 23 Jan 2026 12:40:28 PM IST
+✓ Success: Preprocessed 0 samples for movies_test with llama
+  Location: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/meta-llama/Meta-Llama-3-8B-Instruct/movies_test
+
+Storage usage:
+227M	/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/meta-llama/Meta-Llama-3-8B-Instruct/movies_test

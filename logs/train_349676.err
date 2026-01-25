@@ -1,0 +1,40 @@
+2026-01-23 21:14:33,864 - AppLogger - [INFO] - main.py:247 - Starting the data processing pipeline.
+2026-01-23 21:14:33,864 - AppLogger - [INFO] - main.py:248 - Parsed Arguments: {'LLM': 'Qwen/Qwen2.5-7B-Instruct', 'base_raw_data_dir': '/home/guy_b/big-storage/raw_data', 'train_dataset': 'hotpotqa', 'test_dataset': 'hotpotqa_test', 'base_pre_processed_data_dir': '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data', 'probe_model': 'ImprovedLOSNet', 'topk_preprocess': 1000, 'input_output_type': 'output', 'topk_dim': 1000, 'N_max': 100, 'num_folds': 5, 'fold_to_run': 0, 'input_type': 'LOS', 'seed': 0, 'cuda_idx': 0, 'batch_size': 64, 'hidden_dim': 128, 'heads': 8, 'dropout': 0.1, 'num_layers': 2, 'pool': 'cls', 'patience': 20, 'num_epochs': 100, 'best_model_path': 'saved_models', 'lr': 0.0001, 'rank_encoding': 'scale_encoding', 'weight_decay': 0.001, 'num_workers': 4, 'pin_memory': 1, 'rank_embed_dim': 128, 'use_rank_embed': True, 'use_entropy': True, 'use_gaps': True, 'distill_alpha': 0.5, 'distill_temp': 2.0}
+2026-01-23 21:14:33,865 - AppLogger - [INFO] - main.py:255 - Loading preproccessed data for model 'Qwen/Qwen2.5-7B-Instruct'
+2026-01-23 21:14:33,867 - AppLogger - [INFO] - main.py:25 - Starting data preparation for model 'Qwen/Qwen2.5-7B-Instruct' using training dataset 'hotpotqa'.
+2026-01-23 21:14:33,876 - AppLogger - [INFO] - main.py:91 - Training dataset loaded successfully.
+2026-01-23 21:14:33,886 - AppLogger - [INFO] - main.py:100 - Test dataset loaded successfully.
+2026-01-23 21:14:33,888 - AppLogger - [INFO] - main.py:102 - Dataset processing pipeline completed successfully.
+2026-01-23 21:14:33,889 - AppLogger - [INFO] - main.py:260 - Splitting dataset into train, validation, and test indices.
+Extracting labels:   0%|          | 0/1000 [00:00<?, ?it/s]Extracting labels:   4%|▍         | 42/1000 [00:00<00:02, 411.65it/s]Extracting labels:  10%|▉         | 96/1000 [00:00<00:01, 481.84it/s]Extracting labels:  15%|█▌        | 150/1000 [00:00<00:01, 506.39it/s]Extracting labels:  20%|██        | 204/1000 [00:00<00:01, 518.50it/s]Extracting labels:  26%|██▌       | 258/1000 [00:00<00:01, 525.64it/s]Extracting labels:  31%|███▏      | 314/1000 [00:00<00:01, 535.24it/s]Extracting labels:  37%|███▋      | 370/1000 [00:00<00:01, 542.79it/s]Extracting labels:  42%|████▎     | 425/1000 [00:00<00:01, 539.79it/s]Extracting labels:  48%|████▊     | 479/1000 [00:00<00:01, 516.66it/s]Extracting labels:  53%|█████▎    | 531/1000 [00:01<00:00, 507.02it/s]Extracting labels:  59%|█████▉    | 588/1000 [00:01<00:00, 523.80it/s]Extracting labels:  64%|██████▍   | 645/1000 [00:01<00:00, 535.74it/s]Extracting labels:  70%|███████   | 702/1000 [00:01<00:00, 543.76it/s]Extracting labels:  76%|███████▌  | 758/1000 [00:01<00:00, 545.16it/s]Extracting labels:  81%|████████▏ | 813/1000 [00:01<00:00, 542.63it/s]Extracting labels:  87%|████████▋ | 868/1000 [00:01<00:00, 521.32it/s]Extracting labels:  92%|█████████▏| 924/1000 [00:01<00:00, 530.77it/s]Extracting labels:  98%|█████████▊| 979/1000 [00:01<00:00, 535.17it/s]Extracting labels: 100%|██████████| 1000/1000 [00:01<00:00, 526.38it/s]
+Processing folds:   0%|          | 0/5 [00:00<?, ?it/s]Processing folds: 100%|██████████| 5/5 [00:00<00:00, 81920.00it/s]
+2026-01-23 21:14:35,793 - AppLogger - [INFO] - main.py:276 - Train size: 800, Validation size: 200, Test indices: 1000
+2026-01-23 21:14:35,843 - AppLogger - [INFO] - main.py:285 - Running fold 1 of 5.
+2026-01-23 21:14:35,844 - AppLogger - [INFO] - main.py:287 - Creating dataloaders for training, validation, and test sets.
+2026-01-23 21:14:35,854 - AppLogger - [INFO] - main.py:318 - Creating model for input type: LOS with sequence length 100 and feature dimension: 1000
+2026-01-23 21:14:36,480 - AppLogger - [INFO] - main.py:327 - Total number of parameters in the model: 450561
+2026-01-23 21:14:36,481 - AppLogger - [INFO] - main.py:330 - Creating optimizer and scheduler.
+2026-01-23 21:14:36,483 - AppLogger - [INFO] - main.py:335 - Total number of training steps: 1300, and warm-up steps: 130
+2026-01-23 21:14:36,485 - AppLogger - [INFO] - main.py:350 - will save the best model in this folder: saved_models/Qwen/Qwen2.5-7B-Instruct/hotpotqa with this file name: 5676485231.
+2026-01-23 21:14:36,486 - AppLogger - [INFO] - main.py:351 - Starting wandb, project is LOS-Net.
+2026-01-23 21:14:36,487 - AppLogger - [INFO] - main.py:352 - Starting training loop.
+2026-01-23 21:14:37,564 - AppLogger - [INFO] - main.py:190 - Epoch 1/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:03<00:42,  3.50s/it]../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [18,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [19,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [20,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+../aten/src/ATen/native/cuda/Loss.cu:94: operator(): block: [0,0,0], thread: [49,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+Training Progress:   8%|▊         | 1/13 [00:03<00:44,  3.72s/it]
+Traceback (most recent call last):
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 359, in <module>
+    main()
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 356, in main
+    train_model(logger=logger, model=model, dataloader_train=dataloader_train, dataloader_val=dataloader_val, dataloader_test=dataloader_test, criterion=criterion, optimizer=optimizer, scheduler=scheduler, args=args, device=device)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 193, in train_model
+    train_loss, auc_train = train_one_epoch(model, dataloader_train, criterion, optimizer, scheduler, device, input_type=args.input_type)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 136, in train_one_epoch
+    total_loss += loss.item()
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

@@ -1,0 +1,230 @@
+2026-01-23 22:06:30,866 - AppLogger - [INFO] - main.py:247 - Starting the data processing pipeline.
+2026-01-23 22:06:30,867 - AppLogger - [INFO] - main.py:248 - Parsed Arguments: {'LLM': 'meta-llama/Meta-Llama-3-8B-Instruct', 'base_raw_data_dir': '/home/guy_b/big-storage/raw_data', 'train_dataset': 'imdb', 'test_dataset': 'imdb_test', 'base_pre_processed_data_dir': '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data', 'probe_model': 'LOS-Net', 'topk_preprocess': 1000, 'input_output_type': 'output', 'topk_dim': 1000, 'N_max': 100, 'num_folds': 5, 'fold_to_run': 0, 'input_type': 'LOS', 'seed': 0, 'cuda_idx': 0, 'batch_size': 64, 'hidden_dim': 128, 'heads': 8, 'dropout': 0.1, 'num_layers': 2, 'pool': 'cls', 'patience': 20, 'num_epochs': 100, 'best_model_path': 'saved_models', 'lr': 0.0001, 'rank_encoding': 'scale_encoding', 'weight_decay': 0.001, 'num_workers': 4, 'pin_memory': 1, 'rank_embed_dim': 128, 'use_rank_embed': True, 'use_entropy': True, 'use_gaps': True, 'distill_alpha': 0.5, 'distill_temp': 2.0}
+2026-01-23 22:06:30,868 - AppLogger - [INFO] - main.py:255 - Loading preproccessed data for model 'meta-llama/Meta-Llama-3-8B-Instruct'
+2026-01-23 22:06:30,870 - AppLogger - [INFO] - main.py:25 - Starting data preparation for model 'meta-llama/Meta-Llama-3-8B-Instruct' using training dataset 'imdb'.
+2026-01-23 22:06:30,880 - AppLogger - [INFO] - main.py:91 - Training dataset loaded successfully.
+2026-01-23 22:06:30,892 - AppLogger - [INFO] - main.py:100 - Test dataset loaded successfully.
+2026-01-23 22:06:30,893 - AppLogger - [INFO] - main.py:102 - Dataset processing pipeline completed successfully.
+2026-01-23 22:06:30,894 - AppLogger - [INFO] - main.py:260 - Splitting dataset into train, validation, and test indices.
+Extracting labels:   0%|          | 0/1000 [00:00<?, ?it/s]Extracting labels:   1%|          | 9/1000 [00:00<00:11, 88.05it/s]Extracting labels:   2%|▎         | 25/1000 [00:00<00:07, 123.92it/s]Extracting labels:   4%|▍         | 38/1000 [00:00<00:11, 84.12it/s] Extracting labels:   5%|▌         | 50/1000 [00:00<00:10, 93.73it/s]Extracting labels:   6%|▌         | 61/1000 [00:00<00:09, 96.01it/s]Extracting labels:   7%|▋         | 73/1000 [00:00<00:09, 102.98it/s]Extracting labels:   8%|▊         | 84/1000 [00:00<00:08, 103.52it/s]Extracting labels:  10%|▉         | 97/1000 [00:00<00:08, 105.30it/s]Extracting labels:  11%|█         | 108/1000 [00:01<00:09, 97.17it/s]Extracting labels:  12%|█▏        | 119/1000 [00:01<00:09, 97.75it/s]Extracting labels:  13%|█▎        | 129/1000 [00:01<00:09, 89.99it/s]Extracting labels:  15%|█▌        | 153/1000 [00:01<00:06, 128.96it/s]Extracting labels:  19%|█▉        | 192/1000 [00:01<00:04, 199.10it/s]Extracting labels:  23%|██▎       | 231/1000 [00:01<00:03, 251.21it/s]Extracting labels:  27%|██▋       | 268/1000 [00:01<00:02, 284.16it/s]Extracting labels:  31%|███       | 307/1000 [00:01<00:02, 313.32it/s]Extracting labels:  35%|███▍      | 346/1000 [00:01<00:01, 335.07it/s]Extracting labels:  39%|███▊      | 387/1000 [00:02<00:01, 356.89it/s]Extracting labels:  43%|████▎     | 428/1000 [00:02<00:01, 371.70it/s]Extracting labels:  47%|████▋     | 472/1000 [00:02<00:01, 390.01it/s]Extracting labels:  52%|█████▏    | 516/1000 [00:02<00:01, 402.09it/s]Extracting labels:  56%|█████▌    | 557/1000 [00:02<00:01, 379.04it/s]Extracting labels:  60%|█████▉    | 599/1000 [00:02<00:01, 388.64it/s]Extracting labels:  64%|██████▍   | 641/1000 [00:02<00:00, 396.21it/s]Extracting labels:  68%|██████▊   | 682/1000 [00:02<00:00, 399.58it/s]Extracting labels:  72%|███████▏  | 723/1000 [00:02<00:00, 399.42it/s]Extracting labels:  76%|███████▋  | 765/1000 [00:02<00:00, 405.43it/s]Extracting labels:  81%|████████  | 806/1000 [00:03<00:00, 398.25it/s]Extracting labels:  85%|████████▍ | 849/1000 [00:03<00:00, 406.14it/s]Extracting labels:  89%|████████▉ | 893/1000 [00:03<00:00, 414.99it/s]Extracting labels:  94%|█████████▎| 936/1000 [00:03<00:00, 416.88it/s]Extracting labels:  98%|█████████▊| 979/1000 [00:03<00:00, 417.84it/s]Extracting labels: 100%|██████████| 1000/1000 [00:03<00:00, 282.00it/s]
+Processing folds:   0%|          | 0/5 [00:00<?, ?it/s]Processing folds: 100%|██████████| 5/5 [00:00<00:00, 76818.75it/s]
+2026-01-23 22:06:34,445 - AppLogger - [INFO] - main.py:276 - Train size: 800, Validation size: 200, Test indices: 1000
+2026-01-23 22:06:34,507 - AppLogger - [INFO] - main.py:285 - Running fold 1 of 5.
+2026-01-23 22:06:34,508 - AppLogger - [INFO] - main.py:287 - Creating dataloaders for training, validation, and test sets.
+2026-01-23 22:06:34,515 - AppLogger - [INFO] - main.py:318 - Creating model for input type: LOS with sequence length 100 and feature dimension: 1000
+2026-01-23 22:06:34,787 - AppLogger - [INFO] - main.py:327 - Total number of parameters in the model: 289345
+2026-01-23 22:06:34,789 - AppLogger - [INFO] - main.py:330 - Creating optimizer and scheduler.
+2026-01-23 22:06:34,790 - AppLogger - [INFO] - main.py:335 - Total number of training steps: 1300, and warm-up steps: 130
+2026-01-23 22:06:34,791 - AppLogger - [INFO] - main.py:350 - will save the best model in this folder: saved_models/meta-llama/Meta-Llama-3-8B-Instruct/imdb with this file name: 8794791813.
+2026-01-23 22:06:34,794 - AppLogger - [INFO] - main.py:351 - Starting wandb, project is LOS-Net.
+2026-01-23 22:06:34,796 - AppLogger - [INFO] - main.py:352 - Starting training loop.
+wandb: Tracking run with wandb version 0.15.12
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-01-23 22:06:39,335 - AppLogger - [INFO] - main.py:190 - Epoch 1/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:01<00:22,  1.86s/it]Training Progress:  69%|██████▉   | 9/13 [00:01<00:00,  6.16it/s]Training Progress: 100%|██████████| 13/13 [00:02<00:00,  6.04it/s]
+2026-01-23 22:06:41,493 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.7008, Train AUC: 0.5505
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.12it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.73it/s]
+2026-01-23 22:06:41,811 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.6290, Val AUC: 0.5270, Val TPR@5%FPR: 0.1489
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:05,  2.54it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:01, 10.22it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 14.62it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 17.47it/s]Test Progress: 100%|██████████| 16/16 [00:01<00:00, 15.87it/s]
+2026-01-23 22:06:42,824 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.7515, Test AUC: 0.4674, Test TPR@5%FPR: 0.0665
+2026-01-23 22:06:42,838 - AppLogger - [INFO] - main.py:181 - Model saved at saved_models/meta-llama/Meta-Llama-3-8B-Instruct/imdb/8794791813_best_model.pth
+2026-01-23 22:06:42,840 - AppLogger - [INFO] - main.py:190 - Epoch 2/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.18it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.23it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.50it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.54it/s]
+2026-01-23 22:06:43,630 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.5481, Train AUC: 0.5351
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.95it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.22it/s]
+2026-01-23 22:06:43,937 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.4147, Val AUC: 0.5616, Val TPR@5%FPR: 0.2447
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.39it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.91it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.75it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.98it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.54it/s]
+2026-01-23 22:06:44,804 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.5165, Test AUC: 0.4555, Test TPR@5%FPR: 0.0222
+2026-01-23 22:06:44,818 - AppLogger - [INFO] - main.py:181 - Model saved at saved_models/meta-llama/Meta-Llama-3-8B-Instruct/imdb/8794791813_best_model.pth
+2026-01-23 22:06:44,819 - AppLogger - [INFO] - main.py:190 - Epoch 3/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.40it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.77it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.64it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.59it/s]
+2026-01-23 22:06:45,608 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.3719, Train AUC: 0.4674
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.95it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.13it/s]
+2026-01-23 22:06:45,916 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.2637, Val AUC: 0.5177, Val TPR@5%FPR: 0.1011
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.60it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.25it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.29it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.77it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.46it/s]
+2026-01-23 22:06:46,786 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.3045, Test AUC: 0.4561, Test TPR@5%FPR: 0.0475
+2026-01-23 22:06:46,786 - AppLogger - [INFO] - main.py:211 - No improvement for 1 epochs.
+2026-01-23 22:06:46,788 - AppLogger - [INFO] - main.py:190 - Epoch 4/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.38it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.96it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.83it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.86it/s]
+2026-01-23 22:06:47,563 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2666, Train AUC: 0.4879
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.10it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.40it/s]
+2026-01-23 22:06:47,865 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.2041, Val AUC: 0.4934, Val TPR@5%FPR: 0.0479
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.49it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.36it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.60it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.26it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.21it/s]
+2026-01-23 22:06:48,747 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2325, Test AUC: 0.4638, Test TPR@5%FPR: 0.0591
+2026-01-23 22:06:48,748 - AppLogger - [INFO] - main.py:211 - No improvement for 2 epochs.
+2026-01-23 22:06:48,749 - AppLogger - [INFO] - main.py:190 - Epoch 5/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.36it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.85it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.61it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.72it/s]
+2026-01-23 22:06:49,531 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2327, Train AUC: 0.4951
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.71it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.59it/s]
+2026-01-23 22:06:49,852 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1909, Val AUC: 0.4756, Val TPR@5%FPR: 0.0426
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.67it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.97it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.68it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.43it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.83it/s]
+2026-01-23 22:06:50,706 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2102, Test AUC: 0.4597, Test TPR@5%FPR: 0.0580
+2026-01-23 22:06:50,706 - AppLogger - [INFO] - main.py:211 - No improvement for 3 epochs.
+2026-01-23 22:06:50,707 - AppLogger - [INFO] - main.py:190 - Epoch 6/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.41it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.21it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.37it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 15.98it/s]
+2026-01-23 22:06:51,525 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2281, Train AUC: 0.4982
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.91it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.19it/s]
+2026-01-23 22:06:51,832 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1897, Val AUC: 0.4703, Val TPR@5%FPR: 0.0426
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.55it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.93it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.63it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.31it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.56it/s]
+2026-01-23 22:06:52,698 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2056, Test AUC: 0.4577, Test TPR@5%FPR: 0.0833
+2026-01-23 22:06:52,699 - AppLogger - [INFO] - main.py:211 - No improvement for 4 epochs.
+2026-01-23 22:06:52,700 - AppLogger - [INFO] - main.py:190 - Epoch 7/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.40it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.89it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.39it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.78it/s]
+2026-01-23 22:06:53,479 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2378, Train AUC: 0.5546
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.61it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.32it/s]
+2026-01-23 22:06:53,807 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1896, Val AUC: 0.4712, Val TPR@5%FPR: 0.0426
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.71it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.22it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.95it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.00it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.72it/s]
+2026-01-23 22:06:54,666 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2050, Test AUC: 0.4608, Test TPR@5%FPR: 0.0686
+2026-01-23 22:06:54,666 - AppLogger - [INFO] - main.py:211 - No improvement for 5 epochs.
+2026-01-23 22:06:54,668 - AppLogger - [INFO] - main.py:190 - Epoch 8/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.42it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.10it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.75it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.90it/s]
+2026-01-23 22:06:55,441 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2347, Train AUC: 0.4756
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.33it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.32it/s]
+2026-01-23 22:06:55,745 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1897, Val AUC: 0.4805, Val TPR@5%FPR: 0.0585
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.52it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.40it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.24it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.95it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.50it/s]
+2026-01-23 22:06:56,614 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2058, Test AUC: 0.4622, Test TPR@5%FPR: 0.0496
+2026-01-23 22:06:56,614 - AppLogger - [INFO] - main.py:211 - No improvement for 6 epochs.
+2026-01-23 22:06:56,616 - AppLogger - [INFO] - main.py:190 - Epoch 9/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.30it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.51it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.62it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.92it/s]
+2026-01-23 22:06:57,389 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2290, Train AUC: 0.4952
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.18it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.28it/s]
+2026-01-23 22:06:57,693 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1899, Val AUC: 0.4827, Val TPR@5%FPR: 0.0691
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.59it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.96it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.56it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.24it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.45it/s]
+2026-01-23 22:06:58,564 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2066, Test AUC: 0.4728, Test TPR@5%FPR: 0.0454
+2026-01-23 22:06:58,565 - AppLogger - [INFO] - main.py:211 - No improvement for 7 epochs.
+2026-01-23 22:06:58,566 - AppLogger - [INFO] - main.py:190 - Epoch 10/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.25it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.34it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 16.07it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.73it/s]
+2026-01-23 22:06:59,347 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2343, Train AUC: 0.4972
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.24it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.93it/s]
+2026-01-23 22:06:59,660 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1897, Val AUC: 0.4761, Val TPR@5%FPR: 0.0691
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.36it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.91it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.61it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.73it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.46it/s]
+2026-01-23 22:07:00,531 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2060, Test AUC: 0.4752, Test TPR@5%FPR: 0.0443
+2026-01-23 22:07:00,531 - AppLogger - [INFO] - main.py:211 - No improvement for 8 epochs.
+2026-01-23 22:07:00,533 - AppLogger - [INFO] - main.py:190 - Epoch 11/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.44it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.44it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.34it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.65it/s]
+2026-01-23 22:07:01,318 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2272, Train AUC: 0.5277
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.80it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.96it/s]
+2026-01-23 22:07:01,630 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1897, Val AUC: 0.4845, Val TPR@5%FPR: 0.0691
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.48it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.71it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.85it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.67it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.09it/s]
+2026-01-23 22:07:02,518 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2059, Test AUC: 0.4842, Test TPR@5%FPR: 0.0496
+2026-01-23 22:07:02,518 - AppLogger - [INFO] - main.py:211 - No improvement for 9 epochs.
+2026-01-23 22:07:02,520 - AppLogger - [INFO] - main.py:190 - Epoch 12/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.32it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.10it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 16.06it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.81it/s]
+2026-01-23 22:07:03,297 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2275, Train AUC: 0.5233
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.89it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.46it/s]
+2026-01-23 22:07:03,622 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1895, Val AUC: 0.4925, Val TPR@5%FPR: 0.0691
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.50it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 13.27it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.39it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.43it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.92it/s]
+2026-01-23 22:07:04,471 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2058, Test AUC: 0.4877, Test TPR@5%FPR: 0.0485
+2026-01-23 22:07:04,472 - AppLogger - [INFO] - main.py:211 - No improvement for 10 epochs.
+2026-01-23 22:07:04,473 - AppLogger - [INFO] - main.py:190 - Epoch 13/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.21it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.24it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 16.02it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.96it/s]
+2026-01-23 22:07:05,244 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2314, Train AUC: 0.5353
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.26it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.71it/s]
+2026-01-23 22:07:05,563 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1893, Val AUC: 0.4960, Val TPR@5%FPR: 0.0691
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.32it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.84it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.07it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 17.72it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 17.18it/s]
+2026-01-23 22:07:06,497 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2050, Test AUC: 0.4876, Test TPR@5%FPR: 0.0485
+2026-01-23 22:07:06,499 - AppLogger - [INFO] - main.py:211 - No improvement for 11 epochs.
+2026-01-23 22:07:06,500 - AppLogger - [INFO] - main.py:190 - Epoch 14/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.41it/s]Training Progress:  23%|██▎       | 3/13 [00:00<00:01,  8.56it/s]Training Progress:  54%|█████▍    | 7/13 [00:00<00:00, 17.05it/s]Training Progress:  77%|███████▋  | 10/13 [00:00<00:00, 17.59it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.66it/s]
+2026-01-23 22:07:07,284 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2289, Train AUC: 0.5806
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.92it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.35it/s]
+2026-01-23 22:07:07,588 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1894, Val AUC: 0.4982, Val TPR@5%FPR: 0.0691
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.72it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.39it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.92it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.89it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.48it/s]
+2026-01-23 22:07:08,457 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2051, Test AUC: 0.4922, Test TPR@5%FPR: 0.0538
+2026-01-23 22:07:08,458 - AppLogger - [INFO] - main.py:211 - No improvement for 12 epochs.
+2026-01-23 22:07:08,459 - AppLogger - [INFO] - main.py:190 - Epoch 15/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.44it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.16it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.68it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.75it/s]
+2026-01-23 22:07:09,240 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2268, Train AUC: 0.5304
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.66it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.56it/s]
+2026-01-23 22:07:09,562 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1893, Val AUC: 0.5040, Val TPR@5%FPR: 0.0798
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.53it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.74it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.40it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.57it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.98it/s]
+2026-01-23 22:07:10,409 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2052, Test AUC: 0.4974, Test TPR@5%FPR: 0.0549
+2026-01-23 22:07:10,410 - AppLogger - [INFO] - main.py:211 - No improvement for 13 epochs.
+2026-01-23 22:07:10,411 - AppLogger - [INFO] - main.py:190 - Epoch 16/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.46it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.18it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.67it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.77it/s]
+2026-01-23 22:07:11,191 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2386, Train AUC: 0.5202
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 13.40it/s]
+2026-01-23 22:07:11,494 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1893, Val AUC: 0.4987, Val TPR@5%FPR: 0.0798
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.37it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.77it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 14.74it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.30it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 17.66it/s]
+2026-01-23 22:07:12,404 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2049, Test AUC: 0.4995, Test TPR@5%FPR: 0.0559
+2026-01-23 22:07:12,404 - AppLogger - [INFO] - main.py:211 - No improvement for 14 epochs.
+2026-01-23 22:07:12,406 - AppLogger - [INFO] - main.py:190 - Epoch 17/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.23it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.78it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.34it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.48it/s]
+2026-01-23 22:07:13,199 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2309, Train AUC: 0.5038
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.53it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.10it/s]
+2026-01-23 22:07:13,533 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1897, Val AUC: 0.5155, Val TPR@5%FPR: 0.0957
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.25it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.23it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.11it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 16.52it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 16.64it/s]
+2026-01-23 22:07:14,498 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2056, Test AUC: 0.5039, Test TPR@5%FPR: 0.0601
+2026-01-23 22:07:14,498 - AppLogger - [INFO] - main.py:211 - No improvement for 15 epochs.
+2026-01-23 22:07:14,500 - AppLogger - [INFO] - main.py:190 - Epoch 18/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.01it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 10.78it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 14.83it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 15.41it/s]
+2026-01-23 22:07:15,348 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2314, Train AUC: 0.5154
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.57it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.21it/s]
+2026-01-23 22:07:15,679 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1896, Val AUC: 0.5062, Val TPR@5%FPR: 0.0798
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.21it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.24it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.40it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.97it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.11it/s]
+2026-01-23 22:07:16,567 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2050, Test AUC: 0.5044, Test TPR@5%FPR: 0.0591
+2026-01-23 22:07:16,567 - AppLogger - [INFO] - main.py:211 - No improvement for 16 epochs.
+2026-01-23 22:07:16,569 - AppLogger - [INFO] - main.py:190 - Epoch 19/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.06it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 10.81it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.09it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.00it/s]
+2026-01-23 22:07:17,386 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2416, Train AUC: 0.4308
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  4.19it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.57it/s]
+2026-01-23 22:07:17,707 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1891, Val AUC: 0.5062, Val TPR@5%FPR: 0.0904
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.66it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.75it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 16.81it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 18.55it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.50it/s]
+2026-01-23 22:07:18,576 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2043, Test AUC: 0.5040, Test TPR@5%FPR: 0.0570
+2026-01-23 22:07:18,577 - AppLogger - [INFO] - main.py:211 - No improvement for 17 epochs.
+2026-01-23 22:07:18,578 - AppLogger - [INFO] - main.py:190 - Epoch 20/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.09it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 12.05it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 16.02it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.57it/s]
+2026-01-23 22:07:19,367 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2286, Train AUC: 0.4884
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.85it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.39it/s]
+2026-01-23 22:07:19,694 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1895, Val AUC: 0.5093, Val TPR@5%FPR: 0.0957
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.45it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 12.11it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.81it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.22it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.41it/s]
+2026-01-23 22:07:20,569 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2048, Test AUC: 0.5061, Test TPR@5%FPR: 0.0591
+2026-01-23 22:07:20,569 - AppLogger - [INFO] - main.py:211 - No improvement for 18 epochs.
+2026-01-23 22:07:20,571 - AppLogger - [INFO] - main.py:190 - Epoch 21/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.42it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.55it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.98it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.68it/s]
+2026-01-23 22:07:21,356 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2368, Train AUC: 0.5152
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.76it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.71it/s]
+2026-01-23 22:07:21,674 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1893, Val AUC: 0.5089, Val TPR@5%FPR: 0.0904
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.23it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.08it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.11it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 17.93it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 17.04it/s]
+2026-01-23 22:07:22,617 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2045, Test AUC: 0.5077, Test TPR@5%FPR: 0.0591
+2026-01-23 22:07:22,617 - AppLogger - [INFO] - main.py:211 - No improvement for 19 epochs.
+2026-01-23 22:07:22,619 - AppLogger - [INFO] - main.py:190 - Epoch 22/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:00<00:03,  3.46it/s]Training Progress:  38%|███▊      | 5/13 [00:00<00:00, 11.41it/s]Training Progress:  69%|██████▉   | 9/13 [00:00<00:00, 15.71it/s]Training Progress: 100%|██████████| 13/13 [00:00<00:00, 16.44it/s]
+2026-01-23 22:07:23,414 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.2297, Train AUC: 0.5204
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:00,  3.56it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00, 12.19it/s]
+2026-01-23 22:07:23,745 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.1893, Val AUC: 0.5089, Val TPR@5%FPR: 0.0851
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:00<00:04,  3.52it/s]Test Progress:  31%|███▏      | 5/16 [00:00<00:00, 11.92it/s]Test Progress:  56%|█████▋    | 9/16 [00:00<00:00, 15.91it/s]Test Progress:  81%|████████▏ | 13/16 [00:00<00:00, 19.29it/s]Test Progress: 100%|██████████| 16/16 [00:00<00:00, 18.63it/s]
+2026-01-23 22:07:24,608 - AppLogger - [INFO] - main.py:202 - Test Loss: 0.2044, Test AUC: 0.5075, Test TPR@5%FPR: 0.0591
+2026-01-23 22:07:24,609 - AppLogger - [INFO] - main.py:211 - No improvement for 20 epochs.
+2026-01-23 22:07:24,610 - AppLogger - [INFO] - main.py:219 - Early stopping triggered after 22 epochs.
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:     AUC_train_epoch ▇▆▃▄▄▄▇▃▄▄▆▅▆█▆▅▄▅▁▄▅
+wandb:       best_test_AUC █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: best_test_tpr_5_fpr █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        best_val_AUC ▁████████████████████
+wandb:  best_val_tpr_5_fpr ▁████████████████████
+wandb:               epoch ▁▁▂▂▂▃▃▃▄▄▅▅▅▆▆▆▇▇▇██
+wandb:       learning_rate ▁▂▃▃▄▅▆▆▇██████▇▇▇▇▇▇
+wandb:     test_loss_epoch █▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    train_loss_epoch █▆▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      val_loss_epoch █▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:     AUC_train_epoch 0.5152
+wandb:       best_test_AUC 0.45551
+wandb: best_test_tpr_5_fpr 0.02215
+wandb:        best_val_AUC 0.56161
+wandb:  best_val_tpr_5_fpr 0.24468
+wandb:               epoch 21
+wandb:       learning_rate 9e-05
+wandb:     test_loss_epoch 0.20452
+wandb:    train_loss_epoch 0.23677
+wandb:      val_loss_epoch 0.18929
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/zina.assi/Deep-Learning-project---Hallucination-Detection/wandb/offline-run-20260123_220636-k3yfopk8
+wandb: Find logs at: ./wandb/offline-run-20260123_220636-k3yfopk8/logs
+2026-01-23 22:07:26,028 - AppLogger - [INFO] - main.py:237 - Training complete.

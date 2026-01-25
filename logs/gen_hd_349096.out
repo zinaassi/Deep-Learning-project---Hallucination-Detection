@@ -1,0 +1,23 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 349096
+Node: lambda1
+Dataset: imdb
+Model: meta-llama/Meta-Llama-3-8B-Instruct
+Samples: 1000
+Starting at: Thu 22 Jan 2026 05:19:44 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 1
+Finished at: Thu 22 Jan 2026 05:19:48 PM IST
+✗ Failed: imdb with llama (exit code 1)

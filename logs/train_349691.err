@@ -1,0 +1,48 @@
+2026-01-23 21:20:39,408 - AppLogger - [INFO] - main.py:247 - Starting the data processing pipeline.
+2026-01-23 21:20:39,410 - AppLogger - [INFO] - main.py:248 - Parsed Arguments: {'LLM': 'Qwen/Qwen2.5-7B-Instruct', 'base_raw_data_dir': '/home/guy_b/big-storage/raw_data', 'train_dataset': 'imdb', 'test_dataset': 'imdb_test', 'base_pre_processed_data_dir': '/home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data', 'probe_model': 'ImprovedLOSNet', 'topk_preprocess': 1000, 'input_output_type': 'output', 'topk_dim': 1000, 'N_max': 100, 'num_folds': 5, 'fold_to_run': 0, 'input_type': 'LOS', 'seed': 0, 'cuda_idx': 0, 'batch_size': 64, 'hidden_dim': 128, 'heads': 8, 'dropout': 0.1, 'num_layers': 2, 'pool': 'cls', 'patience': 20, 'num_epochs': 100, 'best_model_path': 'saved_models', 'lr': 0.0001, 'rank_encoding': 'scale_encoding', 'weight_decay': 0.001, 'num_workers': 4, 'pin_memory': 1, 'rank_embed_dim': 128, 'use_rank_embed': True, 'use_entropy': True, 'use_gaps': True, 'distill_alpha': 0.5, 'distill_temp': 2.0}
+2026-01-23 21:20:39,411 - AppLogger - [INFO] - main.py:255 - Loading preproccessed data for model 'Qwen/Qwen2.5-7B-Instruct'
+2026-01-23 21:20:39,412 - AppLogger - [INFO] - main.py:25 - Starting data preparation for model 'Qwen/Qwen2.5-7B-Instruct' using training dataset 'imdb'.
+2026-01-23 21:20:39,422 - AppLogger - [INFO] - main.py:91 - Training dataset loaded successfully.
+2026-01-23 21:20:39,433 - AppLogger - [INFO] - main.py:100 - Test dataset loaded successfully.
+2026-01-23 21:20:39,434 - AppLogger - [INFO] - main.py:102 - Dataset processing pipeline completed successfully.
+2026-01-23 21:20:39,435 - AppLogger - [INFO] - main.py:260 - Splitting dataset into train, validation, and test indices.
+Extracting labels:   0%|          | 0/1000 [00:00<?, ?it/s]Extracting labels:   2%|▏         | 22/1000 [00:00<00:04, 219.61it/s]Extracting labels:   4%|▍         | 44/1000 [00:00<00:04, 198.90it/s]Extracting labels:   9%|▉         | 94/1000 [00:00<00:02, 328.10it/s]Extracting labels:  15%|█▍        | 148/1000 [00:00<00:02, 405.99it/s]Extracting labels:  20%|██        | 203/1000 [00:00<00:01, 454.22it/s]Extracting labels:  26%|██▌       | 257/1000 [00:00<00:01, 482.58it/s]Extracting labels:  31%|███       | 310/1000 [00:00<00:01, 496.93it/s]Extracting labels:  36%|███▋      | 363/1000 [00:00<00:01, 504.60it/s]Extracting labels:  42%|████▏     | 419/1000 [00:00<00:01, 520.74it/s]Extracting labels:  48%|████▊     | 475/1000 [00:01<00:00, 532.12it/s]Extracting labels:  53%|█████▎    | 532/1000 [00:01<00:00, 541.19it/s]Extracting labels:  59%|█████▉    | 589/1000 [00:01<00:00, 549.70it/s]Extracting labels:  64%|██████▍   | 645/1000 [00:01<00:00, 547.28it/s]Extracting labels:  70%|███████   | 702/1000 [00:01<00:00, 552.44it/s]Extracting labels:  76%|███████▌  | 760/1000 [00:01<00:00, 560.26it/s]Extracting labels:  82%|████████▏ | 817/1000 [00:01<00:00, 562.11it/s]Extracting labels:  87%|████████▋ | 874/1000 [00:01<00:00, 562.27it/s]Extracting labels:  93%|█████████▎| 931/1000 [00:01<00:00, 562.27it/s]Extracting labels:  99%|█████████▉| 988/1000 [00:01<00:00, 550.46it/s]Extracting labels: 100%|██████████| 1000/1000 [00:01<00:00, 508.33it/s]
+Processing folds:   0%|          | 0/5 [00:00<?, ?it/s]Processing folds: 100%|██████████| 5/5 [00:00<00:00, 78251.94it/s]
+2026-01-23 21:20:41,407 - AppLogger - [INFO] - main.py:276 - Train size: 800, Validation size: 200, Test indices: 1000
+2026-01-23 21:20:41,548 - AppLogger - [INFO] - main.py:285 - Running fold 1 of 5.
+2026-01-23 21:20:41,551 - AppLogger - [INFO] - main.py:287 - Creating dataloaders for training, validation, and test sets.
+2026-01-23 21:20:41,560 - AppLogger - [INFO] - main.py:318 - Creating model for input type: LOS with sequence length 100 and feature dimension: 1000
+2026-01-23 21:20:42,023 - AppLogger - [INFO] - main.py:327 - Total number of parameters in the model: 450561
+2026-01-23 21:20:42,030 - AppLogger - [INFO] - main.py:330 - Creating optimizer and scheduler.
+2026-01-23 21:20:42,036 - AppLogger - [INFO] - main.py:335 - Total number of training steps: 1300, and warm-up steps: 130
+2026-01-23 21:20:42,037 - AppLogger - [INFO] - main.py:350 - will save the best model in this folder: saved_models/Qwen/Qwen2.5-7B-Instruct/imdb with this file name: 6042037296.
+2026-01-23 21:20:42,038 - AppLogger - [INFO] - main.py:351 - Starting wandb, project is LOS-Net.
+2026-01-23 21:20:42,040 - AppLogger - [INFO] - main.py:352 - Starting training loop.
+2026-01-23 21:20:43,340 - AppLogger - [INFO] - main.py:190 - Epoch 1/100
+Training Progress:   0%|          | 0/13 [00:00<?, ?it/s]Training Progress:   8%|▊         | 1/13 [00:01<00:22,  1.88s/it]Training Progress:  31%|███       | 4/13 [00:02<00:03,  2.54it/s]Training Progress:  54%|█████▍    | 7/13 [00:02<00:01,  4.83it/s]Training Progress:  77%|███████▋  | 10/13 [00:02<00:00,  7.37it/s]Training Progress: 100%|██████████| 13/13 [00:02<00:00, 10.27it/s]Training Progress: 100%|██████████| 13/13 [00:02<00:00,  5.38it/s]
+2026-01-23 21:20:45,768 - AppLogger - [INFO] - main.py:194 - Train Loss: 0.7384, Train AUC: 0.3715
+Validation Progress:   0%|          | 0/4 [00:00<?, ?it/s]Validation Progress:  25%|██▌       | 1/4 [00:00<00:01,  2.74it/s]Validation Progress: 100%|██████████| 4/4 [00:00<00:00,  8.88it/s]
+2026-01-23 21:20:46,222 - AppLogger - [INFO] - main.py:198 - Val Loss: 0.6841, Val AUC: 0.3864, Val TPR@5%FPR: 0.0000
+Test Progress:   0%|          | 0/16 [00:00<?, ?it/s]Test Progress:   6%|▋         | 1/16 [00:01<00:17,  1.18s/it]Test Progress:  31%|███▏      | 5/16 [00:01<00:03,  3.13it/s]Test Progress:  56%|█████▋    | 9/16 [00:02<00:01,  3.90it/s]Test Progress:  81%|████████▏ | 13/16 [00:03<00:00,  5.10it/s]Test Progress: 100%|██████████| 16/16 [00:03<00:00,  4.92it/s]
+Traceback (most recent call last):
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 359, in <module>
+    main()
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 356, in main
+    train_model(logger=logger, model=model, dataloader_train=dataloader_train, dataloader_val=dataloader_val, dataloader_test=dataloader_test, criterion=criterion, optimizer=optimizer, scheduler=scheduler, args=args, device=device)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 201, in train_model
+    test_loss, auc_test, tpr_5_fpr_test = evaluate(model, dataloader_test, criterion, device, desc="Test", input_type=args.input_type)
+  File "/home/zina.assi/Deep-Learning-project---Hallucination-Detection/main.py", line 164, in evaluate
+    fpr, tpr, _ = roc_curve(np.array(all_labels, dtype=bool), np.array(all_predictions))
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 1145, in roc_curve
+    fps, tps, thresholds = _binary_clf_curve(
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/sklearn/metrics/_ranking.py", line 823, in _binary_clf_curve
+    assert_all_finite(y_score)
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/sklearn/utils/validation.py", line 213, in assert_all_finite
+    _assert_all_finite(
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/zina.assi/miniconda3/envs/LOS_Net/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input contains NaN.

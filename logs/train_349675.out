@@ -1,0 +1,45 @@
+================================================
+IMPROVED LOS-NET TRAINING
+================================================
+Job ID: 349675
+Node: lambda1
+Dataset: hotpotqa (test: hotpotqa_test)
+Model: meta-llama/Meta-Llama-3-8B-Instruct
+Seed: 0
+Data dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/meta-llama/Meta-Llama-3-8B-Instruct/hotpotqa/
+Starting at: Fri 23 Jan 2026 09:14:20 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+CUDA available: True
+GPU: NVIDIA GeForce GTX 1080 Ti
+
+Found 1000 preprocessed samples
+
+================================================
+TRAINING CONFIGURATION
+================================================
+Architecture: ImprovedLOSNet
+Features:
+  - Rank embeddings: ON
+  - Entropy features: ON
+  - Probability gaps: ON
+
+Hyperparameters:
+  - Hidden dim: 128
+  - Layers: 2
+  - Attention heads: 8
+  - Batch size: 64
+  - Epochs: 100 (with early stopping)
+  - Learning rate: 1e-4
+
+================================================
+STARTING TRAINING
+================================================
+
+================================================
+TRAINING COMPLETE
+================================================
+Exit code: 1
+Finished at: Fri 23 Jan 2026 09:14:41 PM IST
+✗ Failed: hotpotqa with llama (exit code 1)

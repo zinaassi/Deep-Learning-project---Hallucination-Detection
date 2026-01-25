@@ -340,7 +340,7 @@ def main():
         "linear", optimizer=optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps
     )
     
-    criterion = torch.nn.BCELoss()
+    criterion = torch.nn.BCEWithLogitsLoss()
     
     
     random_number = str(int(time.time() * 1e6) % (10**10))

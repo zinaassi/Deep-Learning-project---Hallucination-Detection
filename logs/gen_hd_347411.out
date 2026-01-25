@@ -1,0 +1,25 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 347411
+Node: lambda1
+Dataset: imdb
+Model: mistralai/Mistral-7B-Instruct-v0.2
+Samples: 1000
+Starting at: Mon 19 Jan 2026 06:11:44 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+⚠ WARNING: Some model layers on CPU (limited GPU memory)
+  This is OK but will be slower
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 1
+Finished at: Mon 19 Jan 2026 06:14:19 PM IST
+✗ Failed: imdb with mistral (exit code 1)

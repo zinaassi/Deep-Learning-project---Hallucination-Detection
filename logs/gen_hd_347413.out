@@ -1,0 +1,25 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 347413
+Node: lambda1
+Dataset: imdb
+Model: Qwen/Qwen2.5-7B-Instruct
+Samples: 1000
+Starting at: Mon 19 Jan 2026 06:11:44 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+⚠ WARNING: Some model layers on CPU (limited GPU memory)
+  This is OK but will be slower
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 1
+Finished at: Mon 19 Jan 2026 06:14:40 PM IST
+✗ Failed: imdb with qwen (exit code 1)

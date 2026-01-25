@@ -1,0 +1,56 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 349109
+Node: lambda1
+Dataset: imdb
+Model: mistralai/Mistral-7B-Instruct-v0.2
+Samples: 1000
+Starting at: Thu 22 Jan 2026 05:23:49 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+Loading model with 4-bit quantization for data generation
+Model loaded: MistralForCausalLM(
+  (model): MistralModel(
+    (embed_tokens): Embedding(32000, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x MistralDecoderLayer(
+        (self_attn): MistralSdpaAttention(
+          (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+          (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+          (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): MistralRotaryEmbedding()
+        )
+        (mlp): MistralMLP(
+          (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+          (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+          (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): MistralRMSNorm()
+        (post_attention_layernorm): MistralRMSNorm()
+      )
+    )
+    (norm): MistralRMSNorm()
+  )
+  (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+)
+Tokenizer loaded: LlamaTokenizerFast(name_or_path='mistralai/Mistral-7B-Instruct-v0.2', vocab_size=32000, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>'}, clean_up_tokenization_spaces=False),  added_tokens_decoder={
+	0: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 0
+Finished at: Thu 22 Jan 2026 05:24:27 PM IST
+✓ Success: Generated 1000 samples for imdb with mistral
+  Location: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/raw_data/mistralai/Mistral-7B-Instruct-v0.2/imdb

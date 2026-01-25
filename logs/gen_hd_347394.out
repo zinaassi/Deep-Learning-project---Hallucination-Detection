@@ -1,0 +1,18 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 347394
+Node: lambda1
+Dataset: hotpotqa
+Model: meta-llama/Meta-Llama-3-8B-Instruct
+Samples: 1000
+Starting at: Mon 19 Jan 2026 10:54:34 AM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+⚠ WARNING: Some model layers on CPU (limited GPU memory)
+  This is OK but will be slower

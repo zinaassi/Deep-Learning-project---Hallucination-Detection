@@ -1,0 +1,23 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 349095
+Node: lambda1
+Dataset: imdb
+Model: mistralai/Mistral-7B-Instruct-v0.2
+Samples: 1000
+Starting at: Thu 22 Jan 2026 05:19:44 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 1
+Finished at: Thu 22 Jan 2026 05:19:48 PM IST
+✗ Failed: imdb with mistral (exit code 1)

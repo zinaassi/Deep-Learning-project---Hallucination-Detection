@@ -1,0 +1,24 @@
+================================================
+HD DATA GENERATION
+================================================
+Job ID: 348762
+Node: lambda1
+Dataset: imdb
+Model: Qwen/Qwen2.5-7B-Instruct
+Samples: 1000
+Starting at: Wed 21 Jan 2026 07:35:24 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+
+================================================
+STARTING DATA GENERATION
+================================================
+Loading model with 4-bit quantization for data generation
+
+================================================
+DATA GENERATION COMPLETE
+================================================
+Exit code: 1
+Finished at: Wed 21 Jan 2026 07:35:33 PM IST
+✗ Failed: imdb with qwen (exit code 1)

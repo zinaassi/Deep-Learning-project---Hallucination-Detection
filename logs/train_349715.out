@@ -1,0 +1,48 @@
+================================================
+IMPROVED LOS-NET TRAINING
+================================================
+Job ID: 349715
+Node: lambda1
+Dataset: movies (test: movies_test)
+Model: mistralai/Mistral-7B-Instruct-v0.2
+Seed: 0
+Data dir: /home/zina.assi/Deep-Learning-project---Hallucination-Detection/data/pre_processed_data/mistralai/Mistral-7B-Instruct-v0.2/movies/
+Starting at: Fri 23 Jan 2026 09:39:34 PM IST
+
+Python: /home/zina.assi/miniconda3/envs/LOS_Net/bin/python
+Conda env: LOS_Net
+CUDA available: True
+GPU: NVIDIA GeForce RTX 2080 Ti
+
+Found 1000 preprocessed samples
+
+================================================
+TRAINING CONFIGURATION
+================================================
+Architecture: ImprovedLOSNet
+Features:
+  - Rank embeddings: ON
+  - Entropy features: ON
+  - Probability gaps: ON
+
+Hyperparameters:
+  - Hidden dim: 128
+  - Layers: 2
+  - Attention heads: 8
+  - Batch size: 64
+  - Epochs: 100 (with early stopping)
+  - Learning rate: 1e-4
+
+================================================
+STARTING TRAINING
+================================================
+
+================================================
+TRAINING COMPLETE
+================================================
+Exit code: 0
+Finished at: Fri 23 Jan 2026 09:43:36 PM IST
+✓ Success: movies with mistral (seed 0)
+
+Results saved to: saved_models/
+Check validation AUC in the output above
